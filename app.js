@@ -12,7 +12,7 @@ const session = require("express-session");
 const sass = require("express-compile-sass");
 const flash = require("connect-flash");
 const cookieParser = require("cookie-parser");
-//require("./app/config/passport")(passport);
+require("./app/config/passport")(passport);
 
 const app = express();
 
@@ -40,14 +40,13 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(flash());
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 /*loads any messages for the user into the view on every request
 also sends the user*/
 app.use((req, res, next) => {
     res.locals.successMessages = req.flash("successMessages");
     res.locals.errorMessages = req.flash("errorMessages");
-    res.locals.user = req.user;
     next();
 });
 
