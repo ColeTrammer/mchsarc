@@ -25,7 +25,7 @@ module.exports = (passport) => {
                     return done(null, false, req.flash("errorMessages", "Invalid email."));
 
                 if (!password)
-                    return done(null, false, req.flash("errorMessages", "Password required."))
+                    return done(null, false, req.flash("errorMessages", "Password required."));
 
                 if (user)
                     return done(null, false, req.flash("errorMessages", "That email is already taken."));
@@ -33,6 +33,8 @@ module.exports = (passport) => {
                 const newUser = new User();
                 newUser.email = email;
                 newUser.password = newUser.generateHash(password);
+                newUser.role = "member";
+                newUser.administer = false;
 
                 newUser.save((err) => {
                     if (err)

@@ -5,12 +5,25 @@ $secondary: #444444;
     margin-top: 1%;
 }
 
-
-
 .primary {
-    color: $primary;
+    color: $primary!important;
+}
+
+.bg-primary {
+    background-color: $primary!important; 
 }
 
 .secondary {
     color: $secondary;
+}
+
+.bg-secondary {
+    background-color: $secondary!important;
+    .nav-link {
+        color: white!important;
+    }
+}
+
+#back {
+    margin-left: 5px;
 }

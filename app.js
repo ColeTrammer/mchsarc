@@ -47,6 +47,7 @@ also sends the user*/
 app.use((req, res, next) => {
     res.locals.successMessages = req.flash("successMessages");
     res.locals.errorMessages = req.flash("errorMessages");
+    res.locals.user = req.user;
     next();
 });
 

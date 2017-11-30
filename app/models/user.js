@@ -5,7 +5,9 @@ const bcrypt = require("bcrypt-nodejs");
 
 const schema = new mongoose.Schema({
     email: String,
-    password: String
+    password: String,
+    role: String,
+    administer: Boolean
 });
 
 schema.methods.generateHash = (password) => {

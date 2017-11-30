@@ -9,6 +9,7 @@ html(lang="en")
         link(rel="stylesheet", type="text/css", href="/public/css/main.scss")
         block head
     body
+        block navbar
         .container#messages
             if successMessages
                 each m in successMessages
