@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
     email: String,
     password: String,
     role: String,
-    administer: Boolean
+    isAdmin: Boolean
 });
 
 schema.methods.generateHash = (password) => {

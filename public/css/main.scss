@@ -9,8 +9,20 @@ $secondary: #444444;
     color: $primary!important;
 }
 
+a .primary:hover {
+    text-decoration: underline;
+    text-decoration-color: $primary;
+}
+
 .bg-primary {
     background-color: $primary!important; 
+}
+
+.announcement {
+    border-radius: .25em;
+    padding: 2%;
+    border: 1px solid black;
+    background-color: #FFFFFF;
 }
 
 .secondary {

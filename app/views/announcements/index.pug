@@ -1,0 +1,8 @@
+extends layout.pug
+
+block content
+    #content.container
+        each announcement in announcements
+            div.announcement            
+                a(href="/announcements/" + announcement._id) #[h1.primary= announcement.title]
+                p= announcement.content

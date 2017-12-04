@@ -1,0 +1,15 @@
+extends layout.pug
+
+
+block content
+    #content.container
+        h4.text-center Update Announcement
+        form(action="/announcements/" + announcement._id + "/update" method="POST" enctype="application/x-www-form-urlencoded")
+            .form-group
+                label(for="title") Title:
+                input.form-control#title(type="text" name="title" value=announcement.title)
+            .form-group
+                label(for="content") Message:
+                input.form-control#content(type="textbox" name="content" value=announcement.content)
+            input.btn.btn-primary(type="submit" value="Update")
+            input.btn.btn-secondary#back(type="button" value="Back" onclick="window.history.back()")

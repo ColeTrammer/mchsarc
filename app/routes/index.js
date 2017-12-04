@@ -15,6 +15,11 @@ module.exports = (app, passport) => {
         res.render("pages/index");
     });
 
+    app.get("/loginSuccess", (req, res) => {
+        const redirect = req.flash("redirect");
+        res.redirect(redirect.length !== 0 ? redirect : "/");
+    });
+
     app.post("/signup", mw.parseForm, passport.authenticate("local-signup", {
         successRedirect: "/",
         failureRedirect: "/signup",
@@ -22,8 +27,8 @@ module.exports = (app, passport) => {
     }));
 
     app.post("/login", mw.parseForm, passport.authenticate("local-login", {
-        successRedirect: "/",
-        failureFlash: "/login",
+        successRedirect: "/loginSuccess",
+        failureRedirect: "/login",
         failureFlash: true
     }));
 
@@ -38,7 +43,9 @@ module.exports = (app, passport) => {
         });
     });
 
-    app.get("*", (req, res) => {
+    require("./announcement")(app);
+
+    app.all("*", (req, res) => {
         res.status(404);
         res.render("pages/404");
     });
