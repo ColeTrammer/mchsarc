@@ -2,7 +2,14 @@ extends layout.pug
 
 block content
     #content.container
+        .header
+            h1.secondary-ul.text-center Announcements
+            if user && user.isAdmin
+                a(href="announcements/new") #[button.btn.btn-primary New Announcement]
+        hr
         each announcement in announcements
-            div.announcement            
-                a(href="/announcements/" + announcement._id) #[h1.primary= announcement.title]
-                p= announcement.content
+            .announcement    
+                .announcement-title        
+                    a(href="/announcements/" + announcement._id) #[h3.primary= announcement.title]
+                .announcement-body
+                    p= announcement.content

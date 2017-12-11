@@ -3,5 +3,11 @@ extends layout.pug
 block content
     #content.container
         .announcement
-            h1.primary= announcement.title
-            p= announcement.content
+            .announcement-title
+                h3.primary= announcement.title
+            .announcement-body
+                p= announcement.content
+        if user && user.isAdmin
+            .actions
+                a(href="/announcements/" + announcement._id + "/update") #[button.btn.btn-secondary Edit]
+                a(href="/announcements/" + announcement._id + "/delete") #[button.btn.btn-primary Delete]

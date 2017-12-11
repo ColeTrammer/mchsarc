@@ -8,4 +8,11 @@ block content
         .text-center
             h1.primary MCHSARC
             h4.secondary Mount Carmel High School Amateur Radio Club
-            hr
+        hr
+        h2.secondary-ul Announcements
+        each announcement in announcements
+            .announcement    
+                .announcement-title        
+                    a(href="/announcements/" + announcement._id) #[h3.primary= announcement.title]
+                .announcement-body
+                    p= announcement.content

@@ -9,6 +9,12 @@ $secondary: #444444;
     color: $primary!important;
 }
 
+.primary-ul {
+    color: $primary!important;
+    text-decoration: underline;
+    text-decoration-color: $primary;
+}
+
 a .primary:hover {
     text-decoration: underline;
     text-decoration-color: $primary;
@@ -18,11 +24,65 @@ a .primary:hover {
     background-color: $primary!important; 
 }
 
+.header {
+    display: flex;
+
+    a {
+        margin-left: auto;
+    }
+}
+
+.actions a button {
+    margin-right: 1%;
+    margin-top: 1%;
+}
+
+.secondary-ul {
+    color: $secondary!important;
+    text-decoration-color: $secondary; 
+    text-decoration: underline;
+}
+
 .announcement {
     border-radius: .25em;
-    padding: 2%;
-    border: 1px solid black;
+    border: 2px solid black;
     background-color: #FFFFFF;
+    margin: 0;
+    margin-top: 2%;
+
+    .announcement-title h3 {
+        border-bottom: 1px solid black;
+        padding: 1%;
+        margin: 0;
+        color: $secondary;
+    }
+
+    .announcement-title a:hover {
+        text-decoration-color: $secondary;
+    }
+
+    .announcement-body {
+        padding: 1%;
+        margin: 0;
+        background-color: #F4F4F4;
+        color: black;
+        border-bottom-left-radius: .25em;
+        border-bottom-right-radius: .25em;
+    }
+}
+
+.btn-primary {
+    background-color: $primary;
+    border-color: $primary - 10;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: $primary - 10;
+    border-color: $primary - 20;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 3px $primary + 50;
 }
 
 .secondary {

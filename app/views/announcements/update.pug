@@ -3,7 +3,7 @@ extends layout.pug
 
 block content
     #content.container
-        h4.text-center Update Announcement
+        h4.text-center.primary-ul Update Announcement
         form(action="/announcements/" + announcement._id + "/update" method="POST" enctype="application/x-www-form-urlencoded")
             .form-group
                 label(for="title") Title:

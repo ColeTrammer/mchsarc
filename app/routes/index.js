@@ -1,6 +1,7 @@
 "use strict";
 
 const mw = require("../middlewares");
+const Annoucement = require("../models/announcement");
 
 /*Static pages simply render a view file with the same name as the path*/
 const staticPages = [
@@ -12,7 +13,12 @@ const staticPages = [
 
 module.exports = (app, passport) => {
     app.get("/", (req, res) => {
-        res.render("pages/index");
+        Annoucement.find({}, (err, announcements) => {
+            if (err)
+                throw err;
+            announcements = announcements.sort((a, b) => a.created < b.created);
+            res.render("pages/index", { announcements: announcements });
+        });
     });
 
     app.get("/loginSuccess", (req, res) => {

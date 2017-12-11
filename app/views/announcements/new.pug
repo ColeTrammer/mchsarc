@@ -3,13 +3,13 @@ extends layout.pug
 
 block content
     #content.container
-        h4.text-center Create Announcement
+        h4.text-center.primary-ul Create Announcement
         form(action="/announcements/new" method="POST" enctype="application/x-www-form-urlencoded")
             .form-group
                 label(for="title") Title:
                 input.form-control#title(type="text" name="title")
             .form-group
                 label(for="content") Message:
-                input.form-control#content(type="textbox" name="content")
+                textarea.form-control#content(name="content" rows="5")
             input.btn.btn-primary(type="submit" value="Create")
             input.btn.btn-secondary#back(type="button" value="Back" onclick="window.history.back()")

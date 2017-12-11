@@ -7,6 +7,7 @@ module.exports = {
         Announcement.find({}, (err, announcements) => {
             if (err)
                 res.redirect("/");
+            announcements = announcements.sort((a, b) => a.created < b.created);
             res.render("announcements", { announcements: announcements });
         });
     },
