@@ -7,8 +7,9 @@ const Annoucement = require("../models/announcement");
 const staticPages = [
     "login",
     "signup",
-    //"about",
-    //"licensing"
+    "about",
+    //"licensing",
+    //"contact"
 ];
 
 module.exports = (app, passport) => {
