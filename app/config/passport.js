@@ -34,7 +34,7 @@ module.exports = (passport) => {
                 newUser.email = email;
                 newUser.password = newUser.generateHash(password);
                 newUser.role = "member";
-                newUser.administer = false;
+                newUser.isAdmin = false;
 
                 newUser.save((err) => {
                     if (err)
